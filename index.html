@@ -14,9 +14,19 @@
         <div class="header-inner">
             <div class="logo">
                 <span class="logo-icon">💎</span>
-                <span class="logo-text">Collar Étnico Sierra</span>
+                <span class="logo-text" data-text-id="logo">Collar Étnico Sierra</span>
             </div>
             <div class="header-actions">
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-btn" onclick="toggleLangMenu()" id="lang-btn">
+                        <span id="current-lang">🇪🇸 ES</span>
+                        <span class="lang-arrow">▼</span>
+                    </button>
+                    <div class="lang-menu" id="lang-menu">
+                        <button class="lang-option" onclick="cambiarIdioma('es')" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" onclick="cambiarIdioma('en')" data-lang="en">🇺🇸 English</button>
+                    </div>
+                </div>
                 <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar entre modo claro y oscuro">
                     <span class="theme-icon" id="theme-icon">🌙</span>
                 </button>
@@ -49,31 +59,76 @@
     <section class="hero" id="inicio">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-tag">✨ Edición Limitada 2026</span>
-            <h1 class="hero-title">Elegancia Hecha a Mano<br>en los Andes</h1>
-            <p class="hero-subtitle">Joyería artesanal peruana con alma, tradición y diseño contemporáneo. Cada pieza cuenta una historia.</p>
+            <span class="hero-tag" data-text-id="hero-tag">✨ Edición Limitada 2026</span>
+            <h1 class="hero-title" data-text-id="hero-title"data-es="Elegancia Hecha a Mano<br>en los Andes" data-en="Handmade Elegance<br>in the Andes">Elegancia Hecha a Mano<br>en los Andes</h1>
+            <p class="hero-subtitle" data-text-id="hero-subtitle"data-es="Joyería artesanal peruana con alma, tradición y diseño contemporáneo. Cada pieza cuenta una historia." data-en="Peruvian handmade jewelry with soul, tradition and contemporary design. Each piece tells a story.">Joyería artesanal peruana con alma, tradición y diseño contemporáneo. Cada pieza cuenta una historia.</p>
             <div class="hero-buttons">
-                <a href="#productos" class="btn btn-primary">Ver Colección</a>
-                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+                <a href="#productos" class="btn btn-primary"data-es="Ver Colección" data-en="View Collection">Ver Colección</a>
+                <a href="#contacto" class="btn btn-secondary"data-es="Contáctanos" data-en="Contact Us"data-es="Contáctanos" data-en="Contact Us">Contáctanos</a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <span class="hero-stat-number">500+</span>
+                    <span class="hero-stat-number" data-text-id="hero-stat-1-num">500+</span>
                     <span class="hero-stat-label">Piezas vendidas</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">100%</span>
+                    <span class="hero-stat-number" data-text-id="hero-stat-2-num">100%</span>
                     <span class="hero-stat-label">Artesanal</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="hero-stat-number">4.9★</span>
+                    <span class="hero-stat-number" data-text-id="hero-stat-3-num">4.9★</span>
                     <span class="hero-stat-label">Calificación</span>
                 </div>
             </div>
         </div>
         <div class="hero-scroll">
-            <span>Descubre más</span>
+            <span data-es="Descubre más" data-en="Discover more">Descubre más</span>
             <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel -->
+    <section class="gallery-section">
+        <div class="gallery-header">
+            <h2 data-text-id="gallery-title" data-es="Nuestra Galería" data-en="Our Gallery">Nuestra Galería</h2>
+            <p data-text-id="gallery-subtitle" data-es="Un vistazo a nuestra artesanía" data-en="A glimpse of our craftsmanship">Un vistazo a nuestra artesanía</p>
+        </div>
+        <div class="gallery-carousel" id="gallery-carousel">
+            <div class="gallery-track" id="gallery-track">
+                <div class="gallery-slide">
+                    <img src="collar-oro.png" alt="Collar de oro">
+                    <div class="gallery-caption">
+                        <span data-es="Colección Oro" data-en="Gold Collection">Colección Oro</span>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="collar-luna.png" alt="Collar luna">
+                    <div class="gallery-caption">
+                        <span data-es="Colección Plata" data-en="Silver Collection">Colección Plata</span>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="collar-estrella.png" alt="Collar estrella">
+                    <div class="gallery-caption">
+                        <span data-es="Colección Cobre" data-en="Copper Collection">Colección Cobre</span>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="collar-mariposa.png" alt="Collar mariposa">
+                    <div class="gallery-caption">
+                        <span data-es="Colección Bronce" data-en="Bronze Collection">Colección Bronce</span>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="collar-corazón-azul.png" alt="Collar corazón azul">
+                    <div class="gallery-caption">
+                        <span data-es="Edición Especial" data-en="Special Edition">Edición Especial</span>
+                    </div>
+                </div>
+            </div>
+            <button class="gallery-nav gallery-prev" onclick="moveGallery(-1)" aria-label="Anterior">❮</button>
+            <button class="gallery-nav gallery-next" onclick="moveGallery(1)" aria-label="Siguiente">❯</button>
+            <div class="gallery-dots" id="gallery-dots"></div>
         </div>
     </section>
 
@@ -84,22 +139,22 @@
                 <img src="collar-oro.png" alt="Collar artesanal peruano de oro">
             </div>
             <div class="about-content">
-                <span class="about-tag">Nuestra Historia</span>
-                <h2 class="about-title">Tradición que se<br>lleva puesta</h2>
-                <p class="about-text">En Collar Étnico Sierra fusionamos la rica herencia orfebre del Perú con diseños contemporáneos. Cada pieza es elaborada artesanalmente por maestros joyeros que ponen su corazón en cada detalle.</p>
-                <p class="about-text">Utilizamos plata de ley 925, oro de alto quilataje y piedras naturales de los Andes. Técnicas transmitidas de generación en generación, ahora al alcance de un clic.</p>
+                <span class="about-tag" data-text-id="about-tag">Nuestra Historia</span>
+                <h2 class="about-title" data-text-id="about-title"data-es="Tradición que se<br>lleva puesta" data-en="Tradition you<br>can wear">Tradición que se<br>lleva puesta</h2>
+                <p class="about-text"data-es="En Collar Étnico Sierra fusionamos la rica herencia orfebre del Perú con diseños contemporáneos. Cada pieza es elaborada artesanalmente por maestros joyeros que ponen su corazón en cada detalle." data-en="At Collar Étnico Sierra we fuse Peru's rich goldsmithing heritage with contemporary designs. Each piece is handcrafted by master jewelers who put their heart into every detail.">En Collar Étnico Sierra fusionamos la rica herencia orfebre del Perú con diseños contemporáneos. Cada pieza es elaborada artesanalmente por maestros joyeros que ponen su corazón en cada detalle.</p>
+                <p class="about-text"data-es="Utilizamos plata de ley 925, oro de alto quilataje y piedras naturales de los Andes. Técnicas transmitidas de generación en generación, ahora al alcance de un clic." data-en="We use 925 sterling silver, high-karat gold and natural stones from the Andes. Techniques passed down from generation to generation, now just a click away.">Utilizamos plata de ley 925, oro de alto quilataje y piedras naturales de los Andes. Técnicas transmitidas de generación en generación, ahora al alcance de un clic.</p>
                 <div class="about-features">
                     <div class="about-feature">
                         <span class="about-feature-icon">🤲</span>
-                        <span class="about-feature-text">Hecho a mano</span>
+                        <span class="about-feature-text"data-es="Hecho a mano" data-en="Handmade">Hecho a mano</span>
                     </div>
                     <div class="about-feature">
                         <span class="about-feature-icon">🌿</span>
-                        <span class="about-feature-text">Materiales sostenibles</span>
+                        <span class="about-feature-text"data-es="Materiales sostenibles" data-en="Sustainable materials">Materiales sostenibles</span>
                     </div>
                     <div class="about-feature">
                         <span class="about-feature-icon">📦</span>
-                        <span class="about-feature-text">Envío a todo el Perú</span>
+                        <span class="about-feature-text"data-es="Envío a todo el Perú" data-en="Shipping all over Peru">Envío a todo el Perú</span>
                     </div>
                 </div>
             </div>
@@ -110,7 +165,7 @@
     <section class="search-section" id="productos">
         <div class="search-wrapper">
             <span class="search-icon">🔍</span>
-            <input type="text" id="busqueda" placeholder="Buscar collares por nombre o descripción..." oninput="filtrarProductos()" autocomplete="off">
+            <input type="text" id="busqueda" data-text-id="search-placeholder" placeholder="Buscar collares por nombre o descripción..." data-placeholder-es="Buscar collares por nombre o descripción..." data-placeholder-en="Search necklaces by name or description..." oninput="filtrarProductos()" autocomplete="off">
         </div>
         <div class="filter-chips" id="filter-chips">
             <button class="chip chip-active" data-category="todos" onclick="filtrarPorCategoria('todos')">
@@ -136,8 +191,8 @@
         <div id="productos-container" class="products-grid"></div>
         <div id="sin-resultados" class="no-results hidden">
             <span class="no-results-icon">🔍</span>
-            <p>No se encontraron productos</p>
-            <span class="no-results-hint">Prueba con otro término o categoría</span>
+            <pdata-es="No se encontraron productos" data-en="No products found">No se encontraron productos</p>
+            <span class="no-results-hint"data-es="Prueba con otro término o categoría" data-en="Try another term or category">Prueba con otro término o categoría</span>
         </div>
     </main>
 
@@ -145,27 +200,27 @@
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <aside class="cart-drawer" id="cart-drawer">
         <div class="cart-drawer-header">
-            <h2>Tu Carrito</h2>
+            <h2data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</h2>
             <button class="cart-close" onclick="toggleCart()" aria-label="Cerrar carrito">✕</button>
         </div>
         <div class="cart-drawer-body" id="cart-items">
             <div class="cart-empty">
                 <span class="cart-empty-icon">🛒</span>
-                <p>Tu carrito está vacío</p>
-                <span class="cart-empty-hint">Agrega productos para comenzar</span>
+                <pdata-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</p>
+                <span class="cart-empty-hint"data-es="Agrega productos para comenzar" data-en="Add products to get started">Agrega productos para comenzar</span>
             </div>
         </div>
         <div class="cart-drawer-footer" id="cart-footer">
             <div class="cart-subtotal">
-                <span>Subtotal</span>
+                <spandata-es="Subtotal" data-en="Subtotal">Subtotal</span>
                 <span id="cart-subtotal">S/ 0.00</span>
             </div>
             <div class="cart-total">
-                <span>Total</span>
+                <spandata-es="Total" data-en="Total">Total</span>
                 <span id="cart-total">S/ 0.00</span>
             </div>
-            <button class="btn-checkout" onclick="checkout()">Reservar todo por WhatsApp</button>
-            <button class="btn-clear" onclick="vaciarCarrito()">Vaciar carrito</button>
+            <button class="btn-checkout" onclick="checkout()"data-es="Reservar todo por WhatsApp" data-en="Reserve all via WhatsApp">Reservar todo por WhatsApp</button>
+            <button class="btn-clear" onclick="vaciarCarrito()"data-es="Vaciar carrito" data-en="Empty cart">Vaciar carrito</button>
         </div>
     </aside>
 
@@ -182,17 +237,17 @@
     <div class="admin-overlay" id="login-overlay" onclick="cerrarLoginAdmin()"></div>
     <div class="admin-login-modal" id="admin-login-modal">
         <div class="admin-login-header">
-            <h3>🔐 Acceso Admin</h3>
+            <h3data-es="🔐 Acceso Admin" data-en="🔐 Admin Access">🔐 Acceso Admin</h3>
             <button class="admin-close" onclick="cerrarLoginAdmin()">✕</button>
         </div>
         <div class="admin-login-body">
-            <p class="admin-login-hint">Ingresa la contraseña para administrar productos.</p>
+            <p class="admin-login-hint"data-es="Ingresa la contraseña para administrar productos." data-en="Enter the password to manage products.">Ingresa la contraseña para administrar productos.</p>
             <div class="admin-form-group">
-                <label>Contraseña</label>
+                <labeldata-es="Contraseña" data-en="Password">Contraseña</label>
                 <input type="password" id="admin-password" placeholder="••••••" onkeydown="if(event.key==='Enter')verificarPassword()">
             </div>
-            <button class="btn-admin-add" onclick="verificarPassword()">Entrar al Panel</button>
-            <p class="admin-login-error" id="login-error">❌ Contraseña incorrecta</p>
+            <button class="btn-admin-add" onclick="verificarPassword()"data-es="Entrar al Panel" data-en="Enter Panel">Entrar al Panel</button>
+            <p class="admin-login-error" id="login-error"data-es="❌ Contraseña incorrecta" data-en="❌ Incorrect password">❌ Contraseña incorrecta</p>
         </div>
     </div>
 
@@ -200,36 +255,36 @@
     <div class="admin-overlay" id="admin-overlay" onclick="toggleAdmin()"></div>
     <aside class="admin-drawer" id="admin-drawer">
         <div class="admin-drawer-header">
-            <h2>⚙️ Panel de Administración</h2>
+            <h2data-es="⚙️ Panel de Administración" data-en="⚙️ Administration Panel">⚙️ Panel de Administración</h2>
             <button class="admin-close" onclick="toggleAdmin()">✕</button>
         </div>
         <div class="admin-drawer-body">
             <!-- Agregar/Editar Producto -->
             <div class="admin-section">
-                <h3 id="admin-form-title">➕ Agregar Nuevo Producto</h3>
+                <h3 id="admin-form-title"data-es="➕ Agregar Nuevo Producto" data-en="➕ Add New Product">➕ Agregar Nuevo Producto</h3>
                 <form id="admin-form" onsubmit="guardarProducto(event)">
                     <input type="hidden" id="admin-edit-id" value="">
                     <div class="admin-form-group">
-                        <label>Nombre del producto</label>
-                        <input type="text" id="admin-nombre" required placeholder="Ej: Collar Étnico Sierra">
+                        <labeldata-es="Nombre del producto" data-en="Product name">Nombre del producto</label>
+                        <input type="text" id="admin-nombre" required placeholder="Ej: Collar Étnico Sierra" data-placeholder-es="Ej: Collar Étnico Sierra" data-placeholder-en="Ex: Ethnic Sierra Necklace">
                     </div>
                     <div class="admin-form-group">
-                        <label>Descripción</label>
-                        <textarea id="admin-desc" rows="2" required placeholder="Descripción del producto..."></textarea>
+                        <labeldata-es="Descripción" data-en="Description">Descripción</label>
+                        <textarea id="admin-desc" rows="2" required placeholder="Descripción del producto..." data-placeholder-es="Descripción del producto..." data-placeholder-en="Product description..."></textarea>
                     </div>
                     <div class="admin-form-row">
                         <div class="admin-form-group">
-                            <label>Precio (S/)</label>
-                            <input type="number" id="admin-precio" min="1" required placeholder="89">
+                            <labeldata-es="Precio (S/)" data-en="Price (S/)">Precio (S/)</label>
+                            <input type="number" id="admin-precio" min="1" required placeholder="89" data-placeholder-es="89" data-placeholder-en="89">
                         </div>
                         <div class="admin-form-group">
-                            <label>Stock</label>
-                            <input type="number" id="admin-stock" min="0" required placeholder="5">
+                            <labeldata-es="Stock" data-en="Stock">Stock</label>
+                            <input type="number" id="admin-stock" min="0" required placeholder="5" data-placeholder-es="5" data-placeholder-en="5">
                         </div>
                     </div>
                     <div class="admin-form-row">
                         <div class="admin-form-group">
-                            <label>Categoría</label>
+                            <labeldata-es="Categoría" data-en="Category">Categoría</label>
                             <select id="admin-categoria" required>
                                 <option value="Plata">Plata</option>
                                 <option value="Oro">Oro</option>
@@ -239,8 +294,8 @@
                             </select>
                         </div>
                         <div class="admin-form-group">
-                            <label>Archivo de imagen o URL</label>
-                            <input type="text" id="admin-imagen" placeholder="collar-corazon.png o https://...">
+                            <labeldata-es="Archivo de imagen o URL" data-en="Image file or URL">Archivo de imagen o URL</label>
+                            <input type="text" id="admin-imagen" placeholder="collar-corazon.png o https://..." data-placeholder-es="collar-corazon.png o https://..." data-placeholder-en="heart-necklace.png or https://...">
                         </div>
                     </div>
                     <small class="admin-hint">
@@ -249,24 +304,24 @@
                         ⚠️ El nombre debe coincidir exactamente, incluyendo mayúsculas/minúsculas.
                     </small>
                     <div class="admin-form-actions">
-                        <button type="submit" class="btn-admin-add" id="admin-submit-btn">Agregar Producto</button>
-                        <button type="button" class="btn-admin-cancel" id="admin-cancel-btn" onclick="cancelarEdicion()" style="display:none;">Cancelar</button>
+                        <button type="submit" class="btn-admin-add" id="admin-submit-btn"data-es="Agregar Producto" data-en="Add Product">Agregar Producto</button>
+                        <button type="button" class="btn-admin-cancel" id="admin-cancel-btn" onclick="cancelarEdicion()" style="display:none;"data-es="Cancelar" data-en="Cancel">Cancelar</button>
                     </div>
                 </form>
             </div>
 
             <!-- Lista de Productos -->
             <div class="admin-section">
-                <h3>📦 Productos Actuales</h3>
+                <h3data-es="📦 Productos Actuales" data-en="📦 Current Products">📦 Productos Actuales</h3>
                 <div id="admin-productos-lista"></div>
             </div>
 
             <!-- Exportar/Importar -->
             <div class="admin-section">
-                <h3>💾 Backup de Productos</h3>
-                <p class="admin-hint">Guarda tu catálogo en un archivo JSON para no perderlo.</p>
+                <h3data-es="💾 Backup de Productos" data-en="💾 Product Backup">💾 Backup de Productos</h3>
+                <p class="admin-hint"data-es="Guarda tu catálogo en un archivo JSON para no perderlo." data-en="Save your catalog in a JSON file so you don't lose it.">Guarda tu catálogo en un archivo JSON para no perderlo.</p>
                 <div class="admin-actions-row">
-                    <button class="btn-admin-action" onclick="exportarProductos()">📥 Exportar JSON</button>
+                    <button class="btn-admin-action" onclick="exportarProductos()"data-es="📥 Exportar JSON" data-en="📥 Export JSON">📥 Exportar JSON</button>
                     <label class="btn-admin-action" style="cursor:pointer;">
                         📤 Importar JSON
                         <input type="file" id="import-file" accept=".json" onchange="importarProductos(this)" style="display:none;">
@@ -276,15 +331,68 @@
 
             <!-- Cerrar sesión -->
             <div class="admin-section">
-                <button class="btn-admin-logout" onclick="cerrarSesionAdmin()">🚪 Cerrar Sesión de Admin</button>
+                <button class="btn-admin-logout" onclick="cerrarSesionAdmin()"data-es="🚪 Cerrar Sesión de Admin" data-en="🚪 Log Out Admin">🚪 Cerrar Sesión de Admin</button>
             </div>
         </div>
     </aside>
 
+    <!-- Testimonios -->
+    <section class="testimonials-section" id="testimonios">
+        <div class="testimonials-header">
+            <h2 data-text-id="testimonials-title" data-es="Lo que dicen nuestros clientes" data-en="What our customers say">Lo que dicen nuestros clientes</h2>
+            <p data-text-id="testimonials-subtitle" data-es="Experiencias reales de amantes de la joyería artesanal" data-en="Real experiences from handmade jewelry lovers">Experiencias reales de amantes de la joyería artesanal</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" data-es="El collar de luna es simplemente hermoso. Se nota la dedicación en cada detalle. Llegó perfectamente empaquetado y el servicio al cliente fue excepcional." data-en="The moon necklace is simply beautiful. You can see the dedication in every detail. It arrived perfectly packaged and customer service was exceptional.">El collar de luna es simplemente hermoso. Se nota la dedicación en cada detalle. Llegó perfectamente empaquetado y el servicio al cliente fue excepcional.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MA</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name" data-text-id="testimonial-1-name">María A.</span>
+                        <span class="testimonial-location" data-text-id="testimonial-1-location" data-es="Lima, Perú" data-en="Lima, Peru">Lima, Perú</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" data-es="Compré el collar étnico sierra como regalo para mi madre y quedó encantada. La calidad de la plata es excelente y el diseño es único. Definitivamente volveré a comprar." data-en="I bought the ethnic sierra necklace as a gift for my mother and she was delighted. The silver quality is excellent and the design is unique. I will definitely buy again.">Compré el collar étnico sierra como regalo para mi madre y quedó encantada. La calidad de la plata es excelente y el diseño es único. Definitivamente volveré a comprar.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JC</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name" data-text-id="testimonial-2-name">Juan C.</span>
+                        <span class="testimonial-location" data-text-id="testimonial-2-location" data-es="Arequipa, Perú" data-en="Arequipa, Peru">Arequipa, Perú</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text" data-es="La atención es personalizada y el envío fue muy rápido. El collar de mariposa superó mis expectativas. Cada pieza cuenta una historia y eso se siente." data-en="The attention is personalized and shipping was very fast. The butterfly necklace exceeded my expectations. Each piece tells a story and you can feel it.">La atención es personalizada y el envío fue muy rápido. El collar de mariposa superó mis expectativas. Cada pieza cuenta una historia y eso se siente.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">LR</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name" data-text-id="testimonial-3-name">Lucía R.</span>
+                        <span class="testimonial-location" data-text-id="testimonial-3-location" data-es="Cusco, Perú" data-en="Cusco, Peru">Cusco, Perú</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Notification -->
+    <div class="social-proof" id="social-proof">
+        <div class="social-proof-icon">👁️</div>
+        <div class="social-proof-text">
+            <span id="social-proof-count">12</span>
+            <span data-text-id="social-proof-text" data-es="personas están viendo esta tienda ahora" data-en="people are viewing this store now">personas están viendo esta tienda ahora</span>
+        </div>
+        <div class="social-proof-close" onclick="cerrarSocialProof()">✕</div>
+    </div>
+
     <!-- Contacto -->
     <section class="contact-section" id="contacto">
-        <h2>Contáctanos</h2>
-        <p class="contact-subtitle">¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas.</p>
+        <h2data-es="Contáctanos" data-en="Contact Us"data-es="Contáctanos" data-en="Contact Us">Contáctanos</h2>
+        <p class="contact-subtitle"data-es="¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas." data-en="Have questions? Write to us and we will respond in less than 24 hours.">¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas.</p>
 
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form">
             <input type="hidden" name="access_key" value="6a54c34f-01d0-4c9a-b17e-b748090e22b0">
@@ -293,18 +401,18 @@
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="name" required placeholder="Tu nombre completo">
+                <label for="nombre" data-text-id="contact-label-name">Nombre</label>
+                <input type="text" id="nombre" name="name" required placeholder="Tu nombre completo" data-placeholder-es="Tu nombre completo" data-placeholder-en="Your full name">
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                <label for="email" data-text-id="contact-label-email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com" data-placeholder-es="tu@email.com" data-placeholder-en="your@email.com">
             </div>
             <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                <label for="mensaje" data-text-id="contact-label-message">Mensaje</label>
+                <textarea id="mensaje" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?" data-placeholder-es="¿En qué podemos ayudarte?" data-placeholder-en="How can we help you?"></textarea>
             </div>
-            <button type="submit" class="btn-submit">Enviar mensaje</button>
+            <button type="submit" class="btn-submit"data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
             <div id="form-status" class="form-status"></div>
         </form>
     </section>
@@ -312,8 +420,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-brand">
-            <span class="footer-logo">💎 Collar Étnico Sierra</span>
-            <p class="footer-desc">Joyería artesanal peruana con alma andina.</p>
+            <span class="footer-logo" data-text-id="footer-logo">💎 Collar Étnico Sierra</span>
+            <p class="footer-desc"data-es="Joyería artesanal peruana con alma andina." data-en="Peruvian handmade jewelry with Andean soul.">Joyería artesanal peruana con alma andina.</p>
         </div>
         <div class="social-links">
             <a href="https://instagram.com/danielquispecarpio" target="_blank" rel="noopener">Instagram</a>
@@ -321,7 +429,7 @@
             <a href="https://tiktok.com/@dannii1270" target="_blank" rel="noopener">TikTok</a>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copy">© 2026 Collar Étnico Sierra — Todos los derechos reservados</p>
+            <p class="footer-copy"data-es="© 2026 Collar Étnico Sierra — Todos los derechos reservados" data-en="© 2026 Collar Étnico Sierra — All rights reserved">© 2026 Collar Étnico Sierra — Todos los derechos reservados</p>
             <div class="footer-visitas">
                 <span>👁️ <span id="visit-counter">0</span> artesanos han visitado esta tienda</span>
             </div>
