@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Joyería artesanal peruana. Collares únicos hechos a mano en los Andes. Plata, oro y piedras naturales.">
+    <title>Collar Étnico Sierra — Joyería Artesanal Peruana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">💎</span>
+                <span class="logo-text">Collar Étnico Sierra</span>
+            </div>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar entre modo claro y oscuro">
+                    <span class="theme-icon" id="theme-icon">🌙</span>
+                </button>
+                <button class="admin-toggle" id="btn-admin" onclick="mostrarLoginAdmin()" title="Panel Admin" style="display:none;" aria-label="Panel de administración">
+                    <span>⚙️</span>
+                </button>
+                <button class="cart-toggle" onclick="toggleCart()" aria-label="Abrir carrito">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-label">Carrito</span>
+                    <span class="cart-badge hidden" id="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Links Bar -->
+    <div class="social-bar">
+        <a href="https://instagram.com/danielquispecarpio" target="_blank" rel="noopener" class="social-bar-link">
+            <span class="social-bar-icon">📸</span> Instagram
+        </a>
+        <a href="https://facebook.com/juandaniel.quispecarpio" target="_blank" rel="noopener" class="social-bar-link">
+            <span class="social-bar-icon">📘</span> Facebook
+        </a>
+        <a href="https://tiktok.com/@dannii1270" target="_blank" rel="noopener" class="social-bar-link">
+            <span class="social-bar-icon">🎵</span> TikTok
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">✨ Edición Limitada 2026</span>
+            <h1 class="hero-title">Elegancia Hecha a Mano<br>en los Andes</h1>
+            <p class="hero-subtitle">Joyería artesanal peruana con alma, tradición y diseño contemporáneo. Cada pieza cuenta una historia.</p>
+            <div class="hero-buttons">
+                <a href="#productos" class="btn btn-primary">Ver Colección</a>
+                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">500+</span>
+                    <span class="hero-stat-label">Piezas vendidas</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100%</span>
+                    <span class="hero-stat-label">Artesanal</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4.9★</span>
+                    <span class="hero-stat-label">Calificación</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Descubre más</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="nosotros">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="collar-oro.png" alt="Collar artesanal peruano de oro">
+            </div>
+            <div class="about-content">
+                <span class="about-tag">Nuestra Historia</span>
+                <h2 class="about-title">Tradición que se<br>lleva puesta</h2>
+                <p class="about-text">En Collar Étnico Sierra fusionamos la rica herencia orfebre del Perú con diseños contemporáneos. Cada pieza es elaborada artesanalmente por maestros joyeros que ponen su corazón en cada detalle.</p>
+                <p class="about-text">Utilizamos plata de ley 925, oro de alto quilataje y piedras naturales de los Andes. Técnicas transmitidas de generación en generación, ahora al alcance de un clic.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <span class="about-feature-icon">🤲</span>
+                        <span class="about-feature-text">Hecho a mano</span>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-icon">🌿</span>
+                        <span class="about-feature-text">Materiales sostenibles</span>
+                    </div>
+                    <div class="about-feature">
+                        <span class="about-feature-icon">📦</span>
+                        <span class="about-feature-text">Envío a todo el Perú</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barra de búsqueda y Filtros -->
+    <section class="search-section" id="productos">
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="busqueda" placeholder="Buscar collares por nombre o descripción..." oninput="filtrarProductos()" autocomplete="off">
+        </div>
+        <div class="filter-chips" id="filter-chips">
+            <button class="chip chip-active" data-category="todos" onclick="filtrarPorCategoria('todos')">
+                Todos <span class="chip-count" id="count-todos">0</span>
+            </button>
+            <button class="chip" data-category="Plata" onclick="filtrarPorCategoria('Plata')">
+                Plata <span class="chip-count" id="count-plata">0</span>
+            </button>
+            <button class="chip" data-category="Oro" onclick="filtrarPorCategoria('Oro')">
+                Oro <span class="chip-count" id="count-oro">0</span>
+            </button>
+            <button class="chip" data-category="Cobre" onclick="filtrarPorCategoria('Cobre')">
+                Cobre <span class="chip-count" id="count-cobre">0</span>
+            </button>
+            <button class="chip" data-category="Bronce" onclick="filtrarPorCategoria('Bronce')">
+                Bronce <span class="chip-count" id="count-bronce">0</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <main class="main-content">
+        <div id="productos-container" class="products-grid"></div>
+        <div id="sin-resultados" class="no-results hidden">
+            <span class="no-results-icon">🔍</span>
+            <p>No se encontraron productos</p>
+            <span class="no-results-hint">Prueba con otro término o categoría</span>
+        </div>
+    </main>
+
+    <!-- Carrito Drawer -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h2>Tu Carrito</h2>
+            <button class="cart-close" onclick="toggleCart()" aria-label="Cerrar carrito">✕</button>
+        </div>
+        <div class="cart-drawer-body" id="cart-items">
+            <div class="cart-empty">
+                <span class="cart-empty-icon">🛒</span>
+                <p>Tu carrito está vacío</p>
+                <span class="cart-empty-hint">Agrega productos para comenzar</span>
+            </div>
+        </div>
+        <div class="cart-drawer-footer" id="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">S/ 0.00</span>
+            </div>
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">S/ 0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Reservar todo por WhatsApp</button>
+            <button class="btn-clear" onclick="vaciarCarrito()">Vaciar carrito</button>
+        </div>
+    </aside>
+
+    <!-- Modal Vista Rápida / Detalle de Producto -->
+    <div class="product-modal-overlay" id="product-modal-overlay" onclick="cerrarModalProducto()"></div>
+    <div class="product-modal" id="product-modal">
+        <button class="product-modal-close" onclick="cerrarModalProducto()" aria-label="Cerrar detalle">✕</button>
+        <div class="product-modal-content" id="product-modal-content">
+            <!-- Se llena dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Login Admin Modal -->
+    <div class="admin-overlay" id="login-overlay" onclick="cerrarLoginAdmin()"></div>
+    <div class="admin-login-modal" id="admin-login-modal">
+        <div class="admin-login-header">
+            <h3>🔐 Acceso Admin</h3>
+            <button class="admin-close" onclick="cerrarLoginAdmin()">✕</button>
+        </div>
+        <div class="admin-login-body">
+            <p class="admin-login-hint">Ingresa la contraseña para administrar productos.</p>
+            <div class="admin-form-group">
+                <label>Contraseña</label>
+                <input type="password" id="admin-password" placeholder="••••••" onkeydown="if(event.key==='Enter')verificarPassword()">
+            </div>
+            <button class="btn-admin-add" onclick="verificarPassword()">Entrar al Panel</button>
+            <p class="admin-login-error" id="login-error">❌ Contraseña incorrecta</p>
+        </div>
+    </div>
+
+    <!-- Admin Panel Drawer -->
+    <div class="admin-overlay" id="admin-overlay" onclick="toggleAdmin()"></div>
+    <aside class="admin-drawer" id="admin-drawer">
+        <div class="admin-drawer-header">
+            <h2>⚙️ Panel de Administración</h2>
+            <button class="admin-close" onclick="toggleAdmin()">✕</button>
+        </div>
+        <div class="admin-drawer-body">
+            <!-- Agregar/Editar Producto -->
+            <div class="admin-section">
+                <h3 id="admin-form-title">➕ Agregar Nuevo Producto</h3>
+                <form id="admin-form" onsubmit="guardarProducto(event)">
+                    <input type="hidden" id="admin-edit-id" value="">
+                    <div class="admin-form-group">
+                        <label>Nombre del producto</label>
+                        <input type="text" id="admin-nombre" required placeholder="Ej: Collar Étnico Sierra">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Descripción</label>
+                        <textarea id="admin-desc" rows="2" required placeholder="Descripción del producto..."></textarea>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label>Precio (S/)</label>
+                            <input type="number" id="admin-precio" min="1" required placeholder="89">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Stock</label>
+                            <input type="number" id="admin-stock" min="0" required placeholder="5">
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label>Categoría</label>
+                            <select id="admin-categoria" required>
+                                <option value="Plata">Plata</option>
+                                <option value="Oro">Oro</option>
+                                <option value="Cobre">Cobre</option>
+                                <option value="Bronce">Bronce</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Archivo de imagen o URL</label>
+                            <input type="text" id="admin-imagen" placeholder="collar-corazon.png o https://...">
+                        </div>
+                    </div>
+                    <small class="admin-hint">
+                        💡 <strong>Opción 1:</strong> Sube la foto a <a href="https://imgur.com" target="_blank">imgur.com</a> y pega el link.<br>
+                        💡 <strong>Opción 2:</strong> Pon la foto en tu carpeta y escribe <strong>exactamente</strong> el nombre del archivo.<br>
+                        ⚠️ El nombre debe coincidir exactamente, incluyendo mayúsculas/minúsculas.
+                    </small>
+                    <div class="admin-form-actions">
+                        <button type="submit" class="btn-admin-add" id="admin-submit-btn">Agregar Producto</button>
+                        <button type="button" class="btn-admin-cancel" id="admin-cancel-btn" onclick="cancelarEdicion()" style="display:none;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de Productos -->
+            <div class="admin-section">
+                <h3>📦 Productos Actuales</h3>
+                <div id="admin-productos-lista"></div>
+            </div>
+
+            <!-- Exportar/Importar -->
+            <div class="admin-section">
+                <h3>💾 Backup de Productos</h3>
+                <p class="admin-hint">Guarda tu catálogo en un archivo JSON para no perderlo.</p>
+                <div class="admin-actions-row">
+                    <button class="btn-admin-action" onclick="exportarProductos()">📥 Exportar JSON</button>
+                    <label class="btn-admin-action" style="cursor:pointer;">
+                        📤 Importar JSON
+                        <input type="file" id="import-file" accept=".json" onchange="importarProductos(this)" style="display:none;">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Cerrar sesión -->
+            <div class="admin-section">
+                <button class="btn-admin-logout" onclick="cerrarSesionAdmin()">🚪 Cerrar Sesión de Admin</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Contacto -->
+    <section class="contact-section" id="contacto">
+        <h2>Contáctanos</h2>
+        <p class="contact-subtitle">¿Tienes dudas? Escríbenos y te responderemos en menos de 24 horas.</p>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form">
+            <input type="hidden" name="access_key" value="6a54c34f-01d0-4c9a-b17e-b748090e22b0">
+            <input type="hidden" name="subject" value="Nuevo mensaje - Collar Étnico Sierra">
+            <input type="hidden" name="from_name" value="Tienda Collar Étnico Sierra">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="name" required placeholder="Tu nombre completo">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar mensaje</button>
+            <div id="form-status" class="form-status"></div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <span class="footer-logo">💎 Collar Étnico Sierra</span>
+            <p class="footer-desc">Joyería artesanal peruana con alma andina.</p>
+        </div>
+        <div class="social-links">
+            <a href="https://instagram.com/danielquispecarpio" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://facebook.com/juandaniel.quispecarpio" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://tiktok.com/@dannii1270" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© 2026 Collar Étnico Sierra — Todos los derechos reservados</p>
+            <div class="footer-visitas">
+                <span>👁️ <span id="visit-counter">0</span> artesanos han visitado esta tienda</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
